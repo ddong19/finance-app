@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import './App.css'
+import './css/App.css'
 import CategoryTableRow from './components/CategoryTableRow.jsx'
 import DateSelector from './components/DateSelector.jsx'
 
@@ -8,7 +7,7 @@ function App() {
 
   return (
     <div>
-      <h1>Finance Tracker</h1>
+      <h1>Daniel's Finance Tracker</h1>
       <DateSelector />
       <CategoryTableRow categories={categoryTypes} />
     </div>

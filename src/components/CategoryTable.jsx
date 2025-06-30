@@ -6,7 +6,7 @@ function CategoryTable( {categoryType}) {
         { name: 'Rent', expected: 1200, actual: 1150 },
         { name: 'Groceries', expected: 500, actual: 480 },
         { name: 'Utilities', expected: 200, actual: 210 },
-        ];
+    ];
 
   return (
     <div className="category-table">
