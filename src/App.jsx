@@ -1,16 +1,22 @@
 import './css/App.css'
-import CategoryTableRow from './components/CategoryTableRow.jsx'
-import DateSelector from './components/DateSelector.jsx'
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import Categories from './pages/Categories'
+import NavBar from './components/NavBar'
 
 function App() {
-  const categoryTypes = ['Income', 'Needs', 'Wants', 'Savings', 'Tithe'];
 
   return (
     <div>
-      <h1>Daniel's Finance Tracker</h1>
-      <DateSelector />
-      <CategoryTableRow categories={categoryTypes} />
+      <NavBar />
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Home/>} />
+          <Route path="/categories" element={<Categories/>} />
+        </Routes>
+      </main>
     </div>
+
   );
 }
 

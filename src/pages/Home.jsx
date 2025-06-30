@@ -1,0 +1,16 @@
+import CategoryTableRow from '../components/CategoryTableRow.jsx'
+import DateSelector from '../components/DateSelector.jsx'
+
+function Home() {
+  const categoryTypes = ['Income', 'Needs', 'Wants', 'Savings', 'Tithe'];
+
+  return (
+    <div>
+      <h1>Daniel's Finance Tracker</h1>
+      <DateSelector />
+      <CategoryTableRow categories={categoryTypes} />
+    </div>
+  );
+}
+
+export default Home
