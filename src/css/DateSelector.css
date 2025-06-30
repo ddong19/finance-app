@@ -1,0 +1,24 @@
+.date-selector {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin: 24px 0;
+  }
+  
+.date-selector select {
+    padding: 10px 16px;
+    border: 1.5px solid #d1d5db;
+    border-radius: 8px;
+    background: #000000;
+    color: #ffffff;
+    font-size: 1rem;
+    font-family: inherit;
+    min-width: 140px;
+}
+
+.date-selector select:focus {
+    border-color: #6366f1;
+    outline: none;
+    box-shadow: 0 0 0 2px #6366f133;
+}

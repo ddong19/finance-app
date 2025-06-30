@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react"
+import '../css/DateSelector.css';
+import { fetchYears, fetchMonths } from "../apis/DateSelector";
 
 function DateSelector(){
     const [years, setYears] = useState([])
@@ -8,8 +10,9 @@ function DateSelector(){
     const [loading, setLoading] = useState(false)
 
     const handleYearChange = (e) => {
-        const year = e.target.value;
+        const year = parseInt(e.target.value);
         setSelectedYear(year)
+        setSelectedMonth(null)
     }
 
     const handleMonthChange = (e) => {
@@ -17,11 +20,11 @@ function DateSelector(){
         setSelectedMonth(month)
     }
 
-    const fetchYears = async () => {
+    const getYears = async () => {
         setLoading(true)
         try {
-            const fakeYears = [2024, 2025]
-            setYears(fakeYears)
+            const years = await fetchYears()
+            setYears(years)
         } catch(error){
             console.error("Error fetching years: ", error)
         } finally{
@@ -29,20 +32,11 @@ function DateSelector(){
         }
     }
 
-    const fetchMonths = async () => {
+    const getMonths = async () => {
         setLoading(true)
         try{
-            const fakeMonths = []
-            if (selectedYear === "2024"){
-                fakeMonths.push("February")
-            }
-            else if (selectedYear === "2025"){
-                fakeMonths.push("April")
-            }
-            else {
-                fakeMonths.push("")
-            }
-            setMonths(fakeMonths)
+            const months = await fetchMonths(selectedYear)
+            setMonths(months)
         } catch(error){
             console.error("Error fetching months: ", error)
         } finally{
@@ -51,11 +45,11 @@ function DateSelector(){
     }
 
     useEffect(() => {
-        fetchYears()
+        getYears()
     }, [])
 
     useEffect(() => {
-        fetchMonths()
+        getMonths()
     }, [selectedYear])
 
     return (
