@@ -1,7 +1,7 @@
 import React from 'react';
-import CategoryTable from './CategoryTable.jsx';
+import BudgetTable from './BudgetTable.jsx';
 
-function CategoryTableRow({ categories }) {
+function BudgetTableContainer({ categories }) {
   return (
     <div style={{
       display: 'flex',
@@ -10,10 +10,10 @@ function CategoryTableRow({ categories }) {
       flexWrap: 'wrap'       // allow wrapping on small screens
     }}>
       {categories.map((catType) => (
-        <CategoryTable key={catType} categoryType={catType} />
+        <BudgetTable key={catType} categoryType={catType} />
       ))}
     </div>
   );
 }
 
-export default CategoryTableRow;
+export default BudgetTableContainer;

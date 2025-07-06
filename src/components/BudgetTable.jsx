@@ -1,7 +1,7 @@
 import React from 'react';
 import '../css/CategoryTable.css';
 
-function CategoryTable( {categoryType}) {
+function BudgetTable( {categoryType}) {
     const fakeData = [
         { name: 'Rent', expected: 1200, actual: 1150 },
         { name: 'Groceries', expected: 500, actual: 480 },
@@ -35,4 +35,4 @@ function CategoryTable( {categoryType}) {
   );
 }
 
-export default CategoryTable;
+export default BudgetTable;

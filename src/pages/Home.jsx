@@ -1,4 +1,4 @@
-import CategoryTableRow from '../components/CategoryTableRow.jsx'
+import BudgetTableContainer from '../components/BudgetTableContainer.jsx'
 import DateSelector from '../components/DateSelector.jsx'
 
 function Home() {
@@ -8,7 +8,7 @@ function Home() {
     <div>
       <h1>Daniel's Finance Tracker</h1>
       <DateSelector />
-      <CategoryTableRow categories={categoryTypes} />
+      <BudgetTableContainer categories={categoryTypes} />
     </div>
   );
 }
