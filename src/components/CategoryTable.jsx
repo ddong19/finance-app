@@ -1,5 +1,4 @@
 import React from 'react'
-import '../css/CategoryTable.css'
 
 function CategoryTable({ category }) {
     const fakeData = 
@@ -13,9 +12,9 @@ function CategoryTable({ category }) {
         }
 
   return (
-    <div className="category-table">
+    <div className="category-table" style={{ flex: 1, minWidth: 220, maxWidth: 320 }}>
       <h2>{category.name}</h2>
-      <table>
+      <table style={{ width: '100%', textAlign: 'center' }}>
         <thead>
           <tr>
             <th>Subcategory</th>
