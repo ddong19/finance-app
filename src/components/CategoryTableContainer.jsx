@@ -18,7 +18,6 @@ function CategoryTableContainer({ categories }) {
         <CategoryTable
           key={category.id}
           category={category}
-          style={{ flex: 1, minWidth: 220, maxWidth: 320 }}
         />
       ))}
     </div>
