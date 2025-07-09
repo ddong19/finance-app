@@ -10,7 +10,7 @@ function BudgetTable( {categoryType}) {
 
   return (
     <div className="category-table">
-      <h2>{categoryType}</h2>
+      <h2>{categoryType.name}</h2>
       <table>
         <thead>
             <tr>

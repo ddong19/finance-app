@@ -10,7 +10,7 @@ function BudgetTableContainer({ categories }) {
       flexWrap: 'wrap'       // allow wrapping on small screens
     }}>
       {categories.map((catType) => (
-        <BudgetTable key={catType} categoryType={catType} />
+        <BudgetTable key={catType.id} categoryType={catType} />
       ))}
     </div>
   );
