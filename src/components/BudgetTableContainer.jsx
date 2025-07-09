@@ -1,7 +1,7 @@
 import React from 'react';
 import BudgetTable from './BudgetTable.jsx';
 
-function BudgetTableContainer({ categories }) {
+function BudgetTableContainer({ transactions }) {
   return (
     <div style={{
       display: 'flex',
@@ -9,8 +9,8 @@ function BudgetTableContainer({ categories }) {
       justifyContent: 'center', // center the row
       flexWrap: 'wrap'       // allow wrapping on small screens
     }}>
-      {categories.map((catType) => (
-        <BudgetTable key={catType.id} categoryType={catType} />
+      {transactions.map((category) => (
+        <BudgetTable key={category.categoryId} category={category} />
       ))}
     </div>
   );

@@ -1,16 +1,11 @@
 import React from 'react';
 import '../css/CategoryTable.css';
 
-function BudgetTable( {categoryType}) {
-    const fakeData = [
-        { name: 'Rent', expected: 1200, actual: 1150 },
-        { name: 'Groceries', expected: 500, actual: 480 },
-        { name: 'Utilities', expected: 200, actual: 210 },
-    ];
+function BudgetTable( {category}) {
 
   return (
     <div className="category-table">
-      <h2>{categoryType.name}</h2>
+      <h2>{category.categoryName}</h2>
       <table>
         <thead>
             <tr>
@@ -20,10 +15,10 @@ function BudgetTable( {categoryType}) {
             </tr>                
         </thead>
         <tbody>
-          {fakeData.map((item) => {
+          {category.subcategories.map((item) => {
             return (
-              <tr key={item.name}>
-                <td>{item.name}</td>
+              <tr key={item.subcategoryId}>
+                <td>{item.subcategoryName}</td>
                 <td>${item.expected}</td>
                 <td>${item.actual}</td>
               </tr>

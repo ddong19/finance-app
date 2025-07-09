@@ -1,27 +1,27 @@
 import BudgetTableContainer from '../components/BudgetTableContainer.jsx'
 import DateSelector from '../components/DateSelector.jsx'
-import { fetchCategories } from '../apis/Categories'
+import { fetchTransactions } from '../apis/Transactions.js'
 import { useEffect, useState } from 'react'
 
 
 function Home() {
-  const [categories, setCategories] = useState([])
+  const [transactions, setTransactions] = useState([])
   const [loading, setLoading] = useState(false)
 
-  const getCategories = async () => {
+  const getTransactions = async () => {
       setLoading(true)
       try {
-          const categories = await fetchCategories()
-          setCategories(categories)
+          const transactions = await fetchTransactions(2024, 12)
+          setTransactions(transactions)
       } catch(error){
-          console.error("Error fetching categories: ", error)
+          console.error("Error fetching transactions: ", error)
       } finally{
           setLoading(false)
       }
   }
 
   useEffect(() => {
-      getCategories()
+      getTransactions()
   }, [])
   
 
@@ -29,7 +29,7 @@ function Home() {
     <div>
       <h1>Daniel's Finance Tracker</h1>
       <DateSelector />
-      <BudgetTableContainer categories={categories} />
+      <BudgetTableContainer transactions={transactions} />
     </div>
   );
 }
