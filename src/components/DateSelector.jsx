@@ -2,11 +2,9 @@ import { useState, useEffect } from "react"
 import '../css/DateSelector.css';
 import { fetchYears, fetchMonths } from "../apis/DateSelector";
 
-function DateSelector(){
+function DateSelector({ selectedYear, selectedMonth, setSelectedYear, setSelectedMonth }) {
     const [years, setYears] = useState([])
     const [months, setMonths] = useState([])
-    const [selectedYear, setSelectedYear] = useState(null)
-    const [selectedMonth, setSelectedMonth] = useState(null)
     const [loading, setLoading] = useState(false)
 
     const handleYearChange = (e) => {
