@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/CategoryTable.css';
+import '../css/BudgetTable.css';
 
 function BudgetTable( {category}) {
 
