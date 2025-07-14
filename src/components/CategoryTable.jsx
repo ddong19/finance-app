@@ -3,11 +3,10 @@ import React from 'react'
 function CategoryTable({ category }) {
   return (
     <div className="category-table" style={{ flex: 1, minWidth: 220, maxWidth: 320 }}>
-      <h2>{category.name}</h2>
       <table style={{ width: '100%', textAlign: 'center' }}>
         <thead>
           <tr>
-            <th>Subcategory</th>
+            <th style={{ textDecoration: 'underline'}}>Subcategory</th>
           </tr>
         </thead>
         <tbody>
