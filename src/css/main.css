@@ -37,21 +37,21 @@ h1 {
 
 button {
   border-radius: 8px;
-  border: 1px solid transparent;
+  border: none;
   padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
+  font-size: .75em;
+  font-weight: 1000;
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: #242424;       /* match page background */
+  color: #d3d3d3;                   /* light gray text */
+  text-align: left;                /* left-aligned text */
   cursor: pointer;
-  transition: border-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #888;
+  color: white;
 }
 
 @media (prefers-color-scheme: light) {
