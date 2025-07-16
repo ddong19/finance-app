@@ -2,7 +2,7 @@
 .category-table {
     border-radius: 12px;                            /* Rounded corners */
     box-shadow: 0 2px 12px rgba(0,0,0,0.08);      /* Subtle shadow */
-    padding: 24px;                                  /* Space inside the box */
+    padding: 16px;                                  /* Space inside the box */
     border: 1px solid #eee;                       /* Light border for extra definition */
   }
 
