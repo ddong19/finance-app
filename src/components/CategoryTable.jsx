@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-function CategoryTable({ category }) {
+function CategoryTable({ category, onDeleteSubcategoryClick }) {
+
   return (
     <div className="category-table" style={{ flex: 1, minWidth: 220, maxWidth: 320 }}>
       <table style={{ width: '100%', textAlign: 'center' }}>
@@ -9,7 +10,7 @@ function CategoryTable({ category }) {
             <tr key={subcategory.id} style={{ position: 'relative'}}>
               <td style={{ position: 'relative' }}>
                 {subcategory.name}
-                <button onClick={() => {}} 
+                <button onClick={() => {onDeleteSubcategoryClick(subcategory.id, subcategory.name)}} 
                         className="delete-btn"
                         style={{ 
                           position: 'absolute',

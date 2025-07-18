@@ -26,3 +26,15 @@ export async function addSubcategory(categoryId, name) {
   
     return response.json();
   }
+
+  export async function deleteSubcategory(subcategoryId) {
+    const response = await fetch(`${BASE_URL}/api/subcategories/${subcategoryId}`, {
+      method: 'DELETE',
+    });
+
+    if (!response.ok){
+        throw new Error(response.json.message)
+    }
+
+    return response.json();
+}

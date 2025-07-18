@@ -1,7 +1,8 @@
 import CategoryTableContainer from '../components/CategoryTableContainer'
 import ModalForm from '../components/NewCategoryModal';
-import { addSubcategory, fetchCategories } from '../apis/Categories'
+import { addSubcategory, fetchCategories, deleteSubcategory } from '../apis/Categories'
 import { useEffect, useState } from 'react'
+import ConfirmDialog from '../components/ConfirmDialog';
 
 function Categories() {
     const [categories, setCategories] = useState([])
@@ -9,6 +10,10 @@ function Categories() {
 
     const [showModal, setShowModal] = useState(false);
     const [selectedCategoryId, setSelectedCategoryId] = useState(null);
+
+    const [deleteConfirmation, setDeleteConfirmation] = useState(false)
+    const [subcategoryId, setSubcategoryId] = useState(null)
+    const [subcategoryName, setSubcategoryName] = useState('')
 
     const getCategories = async () => {
         setLoading(true)
@@ -25,6 +30,10 @@ function Categories() {
     useEffect(() => {
         getCategories()
     }, [])
+
+    // useEffect(() => {
+    //     console.log(subcategoryId)
+    // }, [subcategoryId])
 
     const handleOpenModal = (categoryId) => {
         setSelectedCategoryId(categoryId)
@@ -47,11 +56,37 @@ function Categories() {
         }
     }
 
+    const onDeleteSubcategoryClick = (subcategoryId, subcategoryName) => {
+        setDeleteConfirmation(true)
+        setSubcategoryId(subcategoryId)
+        setSubcategoryName(subcategoryName)
+      }
+    
+      const handleCloseDelete = () => {
+        setDeleteConfirmation(false)
+        setSubcategoryId(null)
+        setSubcategoryName('')
+      }
+    
+      const handleDelete = async() => {
+        try {
+          await deleteSubcategory(subcategoryId)
+          await getCategories();
+        } catch (error) {
+          console.error("Could not delete subcategory", error)
+        } finally {
+          setDeleteConfirmation(false)
+          setSubcategoryId(null)
+          setSubcategoryName('')
+        }
+      }
+
     return(
         <div>
             <h1>Your Categories</h1>
-            <CategoryTableContainer categories={categories} onAddSubcategoryClick={handleOpenModal} />
+            <CategoryTableContainer categories={categories} onAddSubcategoryClick={handleOpenModal} onDeleteSubcategoryClick={onDeleteSubcategoryClick} />
             {showModal && <ModalForm onClose={handleCloseModal} onSubmit={handleSubmit}/>}
+            {deleteConfirmation && <ConfirmDialog message={"Are you sure you want to delete: " + subcategoryName} onConfirm={handleDelete} onCancel={handleCloseDelete}/>}
         </div>
     )
 }

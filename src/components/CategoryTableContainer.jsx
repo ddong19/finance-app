@@ -1,7 +1,7 @@
 import React from 'react';
 import CategoryTable from './CategoryTable.jsx';
 
-function CategoryTableContainer({ categories, onAddSubcategoryClick }) {
+function CategoryTableContainer({ categories, onAddSubcategoryClick, onDeleteSubcategoryClick }) {
 
   return (
     <div
@@ -18,7 +18,7 @@ function CategoryTableContainer({ categories, onAddSubcategoryClick }) {
       {categories.map((category) => (
         <div key={category.id} style={{ flex: 1, minWidth: 220, maxWidth: 320 }} >
           <h2>{category.name}</h2>
-          <CategoryTable category={category} />
+          <CategoryTable category={category} onDeleteSubcategoryClick={onDeleteSubcategoryClick} />
 
           <button 
             onClick={() => {
