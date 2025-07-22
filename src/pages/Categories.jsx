@@ -31,10 +31,6 @@ function Categories() {
         getCategories()
     }, [])
 
-    // useEffect(() => {
-    //     console.log(subcategoryId)
-    // }, [subcategoryId])
-
     const handleOpenModal = (categoryId) => {
         setSelectedCategoryId(categoryId)
         setShowModal(true)
