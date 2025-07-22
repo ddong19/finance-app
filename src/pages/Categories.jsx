@@ -73,7 +73,7 @@ function Categories() {
           await deleteSubcategory(subcategoryId)
           await getCategories();
         } catch (error) {
-          console.error("Could not delete subcategory", error)
+          alert(error)
         } finally {
           setDeleteConfirmation(false)
           setSubcategoryId(null)

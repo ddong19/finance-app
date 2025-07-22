@@ -32,9 +32,10 @@ export async function addSubcategory(categoryId, name) {
       method: 'DELETE',
     });
 
-    if (!response.ok){
-        throw new Error(response.json.message)
-    }
+    if (!response.ok) {
+        const body = await response.json();
+        throw new Error(body?.error || body?.message || 'Failed to delete subcategory');
+      }
 
     return response.json();
 }
